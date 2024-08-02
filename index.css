@@ -1,0 +1,700 @@
+/* Copyright © 2024 Jose Israel Castro. All rights reserved. */
+@font-face {
+    font-family: 'Custom';
+    src: url('FjallaOne-Regular.ttf') format('truetype');
+}
+
+@keyframes slideleft {
+    from {
+        transform: translateX(-40%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideright {
+    from {
+        transform: translateX(140%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slidedown {
+    from {
+        transform: translateY(-40%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideup {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+html {
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1E1E1E;
+    margin: 0;
+    font-family: 'Custom';
+    overflow-x: hidden;
+}
+
+#navbar {
+    z-index: 999999;
+    padding: 10px;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    backdrop-filter: blur(10px);
+}
+
+#navbar.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.proname {
+    font-size: 20px;
+    position: fixed;
+    top: 0;
+    margin-top: 15px;
+    left: 20px;
+    z-index: 9999999;
+    color: white;
+}
+
+.home, .aboutus {
+    border-right: 1px solid white;
+}
+
+#navbar a {
+    margin-top: 17.5px;
+    z-index: 99999;
+    padding: 0 35px;
+    text-decoration: none;
+    color: white;
+    font-weight: lighter;
+}
+
+#navbar a:hover {
+    color: 	#1F51FF;
+}
+
+.contact {
+    margin-right: 9px;
+}
+
+#homepage {
+    min-height: 800px;
+    height: 110%;
+    background-image: url(bg1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.tcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tagline {
+    color: white;
+    font-weight: lighter;
+    opacity: 0;
+    text-align: center;
+    transition: opacity 0.3s ease;
+    margin-top: -100px;
+}
+  
+.tcontainer:hover + .tagline {
+    opacity: 1;
+}
+
+.para1 {
+    margin-top: -100px;
+    position: relative;
+    max-height: 400px;
+    height: 300px;
+    width: 100%;
+    background-image: linear-gradient(to right, #0d001e, #1b305b);
+}
+
+.para2 {    
+    position: relative;
+    display: grid;
+    place-items: end;
+    max-height: 1000px;
+    height: 300px;
+    width: 100%;
+    background-image: linear-gradient(to left,  #1b305b, #2a6199);
+}
+
+.para3 {
+    margin-top: -80px;
+    position: relative;
+    max-height: 400px;
+    height: 300px;
+    width: 100%;
+    background-image: linear-gradient(to right, #2a6199, #3891d6);
+}
+
+.vid {
+    background-color: #1c1c1c;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.project-container {
+    padding: 20px;
+    height: auto;
+    margin-top: -70px;
+    background-image: url(bg2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.projects {
+    padding-top: 120px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 80px;
+    color: white;
+}
+
+.imagecontainer {
+    padding-bottom: 100px;
+    margin-bottom: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    position: relative;
+}
+
+.imagecontainer img {
+    width: 400px;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    position: relative;
+    border-radius: 20px;
+    border: 3px solid rgb(215, 215, 215);
+    padding: 5px;
+    opacity: 0.5;
+    box-shadow: 10px 50px 50px black;
+}
+
+.img-wrapper1, .img-wrapper2, .img-wrapper3 {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+.imagecontainer img:hover {
+    opacity: 1;
+    transform: scale(1.2);
+    z-index: 1;
+}
+
+.imagecontainer span {
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+.p1, .p2, .p3 {
+    margin-top: 300px;
+    color: white;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 99;
+    text-align: center;
+    width: 350px;
+}
+
+.img1:hover ~ .p1 {
+    opacity: 1;
+}
+
+.img2:hover ~ .p2 {
+    opacity: 1;
+}
+
+.img3:hover ~ .p3 {
+    opacity: 1;
+}
+
+.team-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    margin-top: -170px;
+    height: 250px;
+    width: 100%;
+    background-image: linear-gradient(to right, #0d001e, #1b305b, #2a6199, #3891d6);
+}
+
+.team {
+    margin-right: 50px;
+    max-width: 650px;
+    margin-left: 50px;
+    color: white;
+}
+
+.team-container span {
+    text-decoration: underline;
+    font-size: large;
+}
+
+.collage {
+    position: relative;
+    width: 500px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.collage img {
+    position: absolute;
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    object-fit: cover;
+    border: 7px solid white;
+    box-shadow: 10px 10px 10px rgb(33, 32, 32);
+}
+
+.item1 {
+    z-index: 99;
+    top: 10%; 
+    left: 20%; 
+    transform: rotate(-10deg);
+}
+
+.item2 {
+    top: 40%; 
+    left: 30%; 
+    transform: rotate(-15deg);
+}
+
+.item3 {
+    top: 13%; 
+    left: 50%; 
+    transform: rotate(10deg);
+    z-index: 999;
+}
+
+.item4 {
+    z-index: 99999;
+    top: 60%; 
+    left: 40%; 
+    transform: rotate(-10deg);
+}
+
+.item5 {
+    top: 35%; 
+    left: 45%; 
+    transform: rotate(20deg);
+}
+
+.item6 {
+    top: 20%; 
+    left: 30%; 
+    z-index: 1;
+}
+
+.item7 {
+    top: 50%; 
+    left: 20%; 
+    transform: rotate(20deg);
+}
+
+#contactpage {
+    margin-top: 20px;
+    min-height: 680px;
+    background-color: #1c1c1c;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.link1, .link2, .link3 {
+    margin-bottom: 7px;
+    color: white;
+    text-decoration: none;
+    margin-left: 5px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.link1::after, .link2::after, .link3::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0; 
+    height: 2px;
+    background-color: #1F51FF;
+    transition: width 0.2s ease;
+}
+
+.link1:hover, .link2:hover, .link3:hover {
+    color: #1F51FF;
+}
+
+.link1:hover::after, .link2:hover::after, .link3:hover::after {
+    width: 100%;
+}
+
+.contact-container img {
+    width: 35px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+.contact-container h1 {
+    margin-bottom: 5px;
+}
+
+.fb, .cp, .em {
+    display: flex;
+    align-items: center;
+}
+
+.footer {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: black;
+    height: 60px;
+}
+
+.footer p {
+    font-size: 15px;
+    font-weight: lighter;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+
+
+/* --- ANIMATIONS --- */
+
+.title {
+    opacity: 0;
+}
+
+.title.active {
+    background: linear-gradient(45deg, #1b305b, #2a6199, #3891d6, #77c2fb);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+    margin-top: 200px;
+    text-align: center;
+    font-size: 150px;
+    line-height: 1;
+    animation: slidedown 0.55s forwards;
+    transition: opacity 0.55s ease;
+}
+
+.greeting {
+    opacity: 0;
+}
+
+.greeting.active {
+    color: white;
+    font-size: 80px;
+    font-weight: bolder;
+    margin-left: 50px;
+    animation: slideleft 0.5s forwards;
+    transition: opacity 0.55s ease;
+    padding-top: 40px;
+}
+
+.intro1 {
+    opacity: 0;
+}
+
+.intro1.active {
+    max-width: 600px;
+    margin-top: -70px;
+    margin-left: 50px;
+    color: white;
+    animation: slideleft 0.55s forwards;
+    transition: opacity 0.55s ease;
+}
+
+.why {
+    opacity: 0;
+}
+
+.why.active {
+    text-align: end;
+    margin-left: 10px;
+    margin-top: 40px;
+    margin-bottom: 110px;
+    color: white;
+    font-size: 80px;
+    font-weight: bolder;
+    animation: slideright 0.5s forwards;
+    transition: opacity 0.55s ease;
+    margin-right: 50px;
+}
+
+.intro2 {
+    opacity: 0;
+}
+
+.intro2.active {
+    max-width: 600px;
+    margin-top: -100px;
+    text-align: end;
+    padding-bottom: 80px;
+    margin-right: 50px;
+    color: white;
+    animation: slideright 0.55s forwards;
+    transition: opacity 0.55s ease;
+    height: min-content;
+}
+
+.who {
+    opacity: 0;
+}
+
+.who.active {
+    color: white;
+    font-size: 80px;
+    font-weight: bolder;
+    margin-left: 50px;
+    animation: slideleft 0.5s forwards;
+    transition: opacity 0.55s ease;
+    padding-top: 40px;
+}
+
+.intro3 {
+    opacity: 0;
+}
+
+.intro3.active {
+    max-width: 600px;
+    margin-top: -70px;
+    margin-left: 50px;
+    color: white;
+    animation: slideleft 0.55s forwards;
+    transition: opacity 0.55s ease;
+}
+
+.contact-container {
+    display: grid;
+    place-items: center;
+    color: white;
+    opacity: 1;
+    border-radius: 20px;
+    padding: 20px;
+    background-image: url(bg3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 400px;
+}
+
+.border {
+    opacity: 0;
+}
+
+.border.active {
+    display: flex;
+    align-items: center;
+    width: 400px;
+    padding: 5px;
+    border: 3px solid white;
+    border-radius: 25px;
+    animation: slideup 0.55s forwards;
+    transition: opacity 0.55s ease;
+}
+
+
+
+
+
+/* --- MOBILE VIEW --- */
+
+@media only screen and (max-width: 768px) {
+    body {
+        width: 100%;
+    }
+
+    #homepage {
+        min-height: 850px;
+        height: 100%;
+    }
+
+    #navbar {
+        display: flex;
+        justify-content: end;
+        width: 100%;
+        padding-top: 15px;
+        height: 20px;
+        font-size: 14px; 
+    }
+
+    #navbar a {
+        padding: 0 10px;
+    }
+
+    .proname {
+        font-size: 14px;
+    }
+
+    .title.active {
+        font-size: 80px;
+        padding-bottom: 50px;
+        margin-top: 80%;
+    }
+
+    .tagline{
+        opacity: 0;
+    }
+
+    .tagline.active {
+        font-size: 11px;
+        animation: slidedown 0.55s forwards;
+        transition: opacity 0.55s ease;
+    }
+
+    .why.active {
+        font-size: 30px;
+    }
+
+    .greeting.active, .who.active {
+        padding-left: 20px;
+        margin-left: 20px;
+        padding-top: 40px;
+        margin-top: 10px;
+        font-size: 30px;
+        margin-bottom: -10px;
+    }
+
+    .intro2 {
+        width: auto;
+        font-size: 11px;
+        padding-left: 40px;
+    }
+
+    .intro1.active, .intro3.active {
+        margin-top: 30px;
+        font-size: 11px;
+        margin: 0;
+        padding: 20px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .para2 {
+        position: relative;
+        display: grid;
+        place-items: end;
+        width: 100%;
+        overflow: hidden;
+        width: 100%;
+        height: auto;
+    }
+
+    .para1 {
+        margin-top: -30px;
+    }
+
+    .para1, .para3 {    
+        height: auto;
+        padding: 0;
+    }
+
+    .projects {
+        font-size: 40px;
+        padding-bottom: 140px;
+    }
+
+    .img-wrapper1, .img-wrapper2, .img-wrapper3 {
+        margin-top: -120px;
+        width: 90%;
+        object-fit: cover;
+    }
+
+    .imagecontainer img {
+        width: 300px;
+        height: 200px;
+    }
+
+    .p1, .p2, .p3 {
+        margin-top: 250px;
+        font-size: 11px;
+        width: 70%;
+    }
+
+    .team-container {
+        height: 280px;
+    }
+
+    #contactpage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .border.active {
+        width: 300px;
+    }
+
+    video {
+        width: 100%;
+    }
+
+    .footer {
+        height: 20px;
+    }
+
+    .footer p {
+        font-size: 10px;
+    }
+}
+/* Copyright © 2024 Jose Israel Castro. All rights reserved. */
